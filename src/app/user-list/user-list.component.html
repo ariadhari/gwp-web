@@ -1,0 +1,26 @@
+<div class="col-md-6">
+  <h2> User Details</h2>
+  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <p></p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- <tr *ngFor="let user of users"> -->
+    <tr *ngFor="let user of users">
+      <td>{{user.uid}}</td>
+      <td>{{user.uusername}}</td>
+      <td>{{user.uemail}}</td>
+      <td>{{user.upassword}}</td>
+      <td><button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button>&nbsp;<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h2> Page Details</h2>
+  <button class="btn btn-danger" (click)="addPage()"> Add Page</button>
+  <p></p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Description</th>
+      <!-- <th>Password</th> -->
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- <tr *ngFor="let user of users"> -->
+    <tr *ngFor="let page of pages">
+      <td>{{page.page_id}}</td>
+      <td>{{page.page_title}}</td>
+      <td>{{page.page_slug}}</td>
+      <td>{{page.page_description}}</td>
+      <!-- <td>{{user.upassword}}</td> -->
+      <td><button class="btn btn-danger" (click)="editPage(page)" style="margin-left: 20px;"> Edit</button>&nbsp;<button class="btn btn-danger" (click)="deletePage(page)"> Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

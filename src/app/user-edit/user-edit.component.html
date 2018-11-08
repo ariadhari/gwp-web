@@ -1,0 +1,41 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit User</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" formControlName="uid" name="uid" class="form-control" id="uid">
+      <label for="username">Username: <code style="color: red">*</code></label>
+      <input type="text" formControlName="username" placeholder="Username" name="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username">
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required" style="color: red">First Name is required</div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="email">Email address: <code style="color: red">*</code></label>
+      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required" style="color: red">Email is required</div>
+        <div *ngIf="f.email.errors.email" style="color: red">Email format ex: mail@gmail.com</div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="password">Password: <code style="color: red">*</code></label>
+      <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required" style="color: red">Password is required</div>
+        <div *ngIf="f.password.errors.minlength" style="color: red">Password must be at least 6 characters</div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="city">City: <code style="color: red">*</code></label>
+      <input type="text" formControlName="city" placeholder="City" name="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" id="city">
+      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+        <div *ngIf="f.city.errors.required" style="color: red">City is required</div>
+      </div>
+    </div>
+    <br />
+    <button [disabled]="loading" class="btn btn-success">SUBMIT</button>
+  </form>
+</div>

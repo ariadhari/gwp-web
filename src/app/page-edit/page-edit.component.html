@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Page</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" method="POST">
+    <div class="form-group">
+      <input type="hidden" formControlName="page_id" name="page_id" class="form-control" id="page_id">
+      <label for="page_title">Title: <code style="color: red">*</code></label>
+      <input type="text" formControlName="page_title" placeholder="Page Title" name="page_title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.page_title.errors }" id="page_title">
+      <div *ngIf="submitted && f.page_title.errors" class="invalid-feedback">
+        <div *ngIf="f.page_title.errors.required" style="color: red">Page Title is required</div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="page_slug">Slug: <code style="color: red">*</code></label>
+      <input type="text" formControlName="page_slug" placeholder="Page Slug" name="page_slug" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.page_slug.errors }" id="page_slug">
+      <div *ngIf="submitted && f.page_slug.errors" class="invalid-feedback">
+        <div *ngIf="f.page_slug.errors.required" style="color: red">Page Slug is required</div>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="page_description">Description: <code style="color: red">*</code></label>
+      <input type="text" formControlName="page_description" placeholder="Page Description" name="page_description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.page_description.errors }" id="page_description">
+      <div *ngIf="submitted && f.page_description.errors" class="invalid-feedback">
+        <div *ngIf="f.page_description.errors.required" style="color: red">Page Description is required</div>
+      </div>
+    </div>
+    <br />
+    <button [disabled]="loading" class="btn btn-success">SUBMIT</button>
+  </form>
+</div>
